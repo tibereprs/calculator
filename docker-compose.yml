@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"     
+    volumes:
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf     
+      - ./:/var/www
+  php-fpm:
+    image: php:7.3-fpm
+    volumes:
+      - ./:/var/www
+      - ./docker/php/project.ini:/usr/local/etc/php/conf.d/project.ini
+    expose:
+      - "9000"

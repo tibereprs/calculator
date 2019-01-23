@@ -1,0 +1,22 @@
+{% block body %}
+    <div id="container">
+        <h3>Super Calculator </h3>
+
+        <div id="calculator">
+            {{ form_start(formCalculator) }}
+            {{ form_widget(formCalculator) }}
+            {{ form_end(formCalculator) }}
+        </div>
+
+        {% if response is defined %}
+            <div>
+                <p>The result is {{ response }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
