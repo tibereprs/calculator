@@ -2,6 +2,12 @@
     <div id="container">
         <h3>Super Calculator </h3>
 
+        {% for msg in app.session.flashBag.get('error') %}
+            <div class="alert alert-danger" style="color: #AAAAAA; background-color: #AA3333">
+                {{ msg }}
+            </div>
+        {% endfor %}
+
         <div id="calculator">
             {{ form_start(formCalculator) }}
             {{ form_widget(formCalculator) }}

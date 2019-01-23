@@ -5,11 +5,11 @@ namespace App\Services;
 
 class Calculator
 {
-    public function calculate($result)
+    public function calculate($resultCalculatorForm)
     {
-        $operator = $result['operator'];
-        $number1 = $result['number1'];
-        $number2 = $result['number2'];
+        $operator = $resultCalculatorForm['operator'];
+        $number1 = $resultCalculatorForm['number1'];
+        $number2 = $resultCalculatorForm['number2'];
 
         switch ($operator) {
             case 'plus':
@@ -23,6 +23,9 @@ class Calculator
                 break;
             case 'division':
                 $result = $this->division($number1, $number2);
+                break;
+            default:
+                $result = false;
                 break;
         }
 

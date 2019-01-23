@@ -43,10 +43,20 @@ class CalculatorController extends AbstractController
 
             $response = $calculate->calculate($resultCalculator);
 
-            return $this->render('calculator.html.twig', array(
-                'formCalculator' => $formCalculator->createView(),
-                'response' => $response
-            ));
+            if ($response) {
+                return $this->render('calculator.html.twig', array(
+                    'formCalculator' => $formCalculator->createView(),
+                    'response' => $response
+                ));
+            } else {
+                $this->addFlash(
+                    'error',
+                    'There was an error, please try again!'
+                );
+
+                return $this->redirectToRoute('_calculator');
+            }
+
         }
 
         return $this->render('calculator.html.twig', array(
