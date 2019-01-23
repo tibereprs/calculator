@@ -23,7 +23,7 @@ Installation
 ```bash
 $ git clone https://github.com/tibereprs/calculator
 $ cd calculator/
-$ docker-compose up --build
+$ docker-compose up --build -d
 $ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp prooph/composer:7.2 install
 ```
 
